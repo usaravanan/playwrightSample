@@ -1,0 +1,14 @@
+language: node_js
+dist: trusty
+node_js:
+  - 16.14.2
+install:
+- npm install
+cache:
+  directories:
+    - node_modules
+jobs:
+  include:
+    - stage: test
+      script:
+      - npx playwright test tests/api --project api-dev --grep @smoke
